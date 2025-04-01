@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://elementalsound.com
+
+# Sitemaps
+Sitemap: https://elementalsound.com/sitemap.xml

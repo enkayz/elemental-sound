@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 52 100 115; /* #346473 */
+    --secondary: 232 170 51; /* #E8AA33 */
+    --tertiary: 63 130 109; /* #3f826d */
+    --accent: 126 89 32; /* #7E5920 */
+    --dark: 25 36 64; /* #192440 */
+    --light: 247 249 252; /* #f7f9fc */
+  }
+
+  body {
+    @apply bg-light-DEFAULT text-gray-800 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .button {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50;
+  }
+
+  .button-primary {
+    @apply bg-primary-DEFAULT text-white hover:bg-primary-hover;
+  }
+
+  .button-secondary {
+    @apply bg-secondary-DEFAULT text-dark-DEFAULT hover:bg-secondary-DEFAULT/90;
+  }
+
+  .button-outline {
+    @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-DEFAULT;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  }
+} 
