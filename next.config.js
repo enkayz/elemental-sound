@@ -9,7 +9,10 @@ const nextConfig = {
     ],
   },
   output: 'standalone',
-  reactStrictMode: true,
+  reactStrictMode: true,  
+  images: {
+    unoptimized: true,
+  },
   swcMinify: true,
   webpack: (config) => {
     return config;
