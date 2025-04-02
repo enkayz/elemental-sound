@@ -22,7 +22,7 @@ export default function ClientLayout({
 
   return (
     <>
-      <header className="bg-white backdrop-blur-sm bg-opacity-90 shadow-sm sticky top-0 z-50 transition-all duration-300">
+      <header className="header">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center group transition-all duration-300">
@@ -32,7 +32,8 @@ export default function ClientLayout({
                   alt="Elemental Sound Logo" 
                   width={160} 
                   height={48} 
-                  className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" 
+                  priority
+                  className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
                 />
               </div>
             </Link>
@@ -114,7 +115,7 @@ export default function ClientLayout({
                   alt="Elemental Sound Logo" 
                   width={180} 
                   height={50} 
-                  className="h-12 w-auto" 
+                  className="h-12 w-auto object-contain" 
                 />
               </Link>
               <p className="text-light-DEFAULT text-sm leading-relaxed">
@@ -157,10 +158,12 @@ export default function ClientLayout({
               <h3 className="text-lg font-bold mb-4 border-b border-white border-opacity-20 pb-2 inline-block text-secondary-DEFAULT">Services</h3>
               <ul className="space-y-3">
                 <li><Link href="/services/membership" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Studio Membership</Link></li>
-                <li><Link href="/services/equipment-rental" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Equipment Rental</Link></li>
+                <li><Link href="/services/equipment" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Equipment Rental</Link></li>
                 <li><Link href="/services/education" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Education Platform</Link></li>
                 <li><Link href="/services/mobile-recording" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Mobile Recording</Link></li>
                 <li><Link href="/services/consulting" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Consulting</Link></li>
+                <li><Link href="/services/post-production" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Post Production</Link></li>
+                <li><Link href="/services/studio" className="text-light-DEFAULT hover:text-secondary-DEFAULT transition-colors duration-200 text-sm flex items-center"><span className="mr-2">→</span>Studio Services</Link></li>
               </ul>
             </div>
             <div>
@@ -204,7 +207,7 @@ function NavLinks({
 }: { 
   mobile?: boolean; 
   setMobileMenuOpen?: (open: boolean) => void;
-  pathname: string;
+  pathname: string | null;
 }) {
   const links = [
     { href: '/', label: 'Home' },
@@ -217,7 +220,7 @@ function NavLinks({
 
   return links.map((link) => {
     const isActive = pathname === link.href || 
-      (link.href !== '/' && pathname.startsWith(link.href));
+      (pathname !== null && link.href !== '/' && pathname.startsWith(link.href));
       
     return (
       <Link

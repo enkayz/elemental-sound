@@ -1,10 +1,12 @@
+// @ts-check
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    './app/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     fontFamily: {
@@ -36,6 +38,11 @@ module.exports = {
         light: {
           DEFAULT: 'rgb(var(--color-light))',
         },
+      },
+      maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
       },
     },
   },
